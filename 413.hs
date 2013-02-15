@@ -28,6 +28,12 @@ nChildren i = toInteger $ S.size $ S.filter (isDivisor d') $ subStrings i
   where
     d' = d i
 
+-- Let F(N) be the number of the one-child numbers less than N.
+f :: Integer -> Integer
+f n = toInteger $ length $ filter (\i -> nChildren i == 1) [1..(n-1)]
+
 main = do
   putStrLn $ show $ subStrings 1234 
   putStrLn $ show $ nChildren 1234 
+  putStrLn $ show $ f 10
+  putStrLn $ show $ f 10^3
