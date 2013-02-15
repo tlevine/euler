@@ -8,7 +8,12 @@ import qualified Data.Text as T
 subStringsN :: Integer -> Integer -> S.Set Integer
 subStringsN i n
   | n <= 0 = S.fromList []
-  | otherwise = S.map (\i' -> read (T.unpack i') :: Integer) $ S.fromList $ T.chunksOf (fromInteger n) $ T.pack $ show i
+  | otherwise = S.map (\i' -> read (T.unpack i') :: Integer) $ subStringsNStr i n
+  
+subStringsNStr :: Integer -> Integer -> S.Set T.Text
+subStringsNStr i n = S.fromList $ concat $ map subStringsN' [0..((fromInteger n)-1)]
+  where
+    subStringsN' m = T.chunksOf (fromInteger n) $ T.drop m $ T.pack $ show i
 
 -- Number of digits
 d :: Integer -> Integer
