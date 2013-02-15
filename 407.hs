@@ -18,7 +18,7 @@ equation n = zip left right
     left = map (\a -> a^2 `mod` n) right
 
 sigma :: Word64
-sigma = sum $ map m [1..nMax]
+sigma = foldr (\a b -> sum [a,b]) 0 $ map m [1..nMax]
   where
     nMax = 10^7 :: Word64
 
