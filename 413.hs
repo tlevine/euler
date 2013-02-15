@@ -44,3 +44,4 @@ main = do
   putStrLn $ show $ nChildren 1132451
   putStrLn $ show $ f 10
   putStrLn $ show $ f 10^3
+  putStrLn $ show $ f 10^7
