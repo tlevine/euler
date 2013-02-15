@@ -10,7 +10,6 @@ import Data.Word
 
 m :: Word64 -> Word64
 m n = fst $ head $ filter (\pair -> fst pair == snd pair ) $ reverse $ equation n
---m n = head $ reverse $ equation n
 
 equation :: Word64 -> [(Word64,Word64)]
 equation n = zip left right
