@@ -6,21 +6,23 @@
 
 --Find M(n) for 1 <= n <= 10^7.
 
-import Data.Word
-
-m :: Word64 -> Word64
-m n = fst $ head $ filter (\pair -> fst pair == snd pair ) $ reverse $ equation n
-
-equation :: Word64 -> [(Word64,Word64)]
+-- Lazily list all of the left and right sides of the equation.
+equation :: Integer -> [(Integer,Integer)]
 equation n = zip left right
   where
     right = [0..(n-1)]
     left = map (\a -> a^2 `mod` n) right
 
-sigma :: Word64
-sigma = foldr (\a b -> sum [a,b]) 0 $ map m [1..nMax]
+-- M(n) chooses the highest number that matches and then stops.
+m :: Integer -> Integer
+m n = fst $ head $ filter (\pair -> fst pair == snd pair ) $ reverse $ equation n
+
+-- Compute the sum.
+sigma :: Integer
+sigma = foldr (+) 0 $ map m [1..nMax]
   where
-    nMax = 10^7 :: Word64
+    -- Set the type explicitly.
+    nMax = 10^7 :: Integer
 
 main = do
   putStrLn "As in the example, this is M(6):"
