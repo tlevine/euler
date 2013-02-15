@@ -17,9 +17,12 @@ equation n = zip left right
     right = [0..(n-1)]
     left = map (\a -> a^2 `mod` n) right
 
-sigma :: Word64
-sigma = sum $ map m [1..(10^7)]
+sigma :: Word64 -> Word64
+sigma nMax = sum $ map m [1..nMax]
 
 main = do
+  putStrLn "As in the example, this is M(6):"
   putStrLn $ show $ m 6
-  putStrLn $ show $ sigma
+
+  putStrLn "Here is the answer to the question:"
+  putStrLn $ show $ sigma 10^7
