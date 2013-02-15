@@ -8,15 +8,19 @@
 
 import Data.Word
 
-m :: Word64 -> (Word64, Word64)
---m n = fst $ head $ filter (\pair -> fst pair == snd pair ) $ reverse $ equation n
-m n = head $ reverse $ equation n
+m :: Word64 -> Word64
+m n = fst $ head $ filter (\pair -> fst pair == snd pair ) $ reverse $ equation n
+--m n = head $ reverse $ equation n
 
 equation :: Word64 -> [(Word64,Word64)]
 equation n = zip left right
   where
-    left = map (\a -> a^2) [0..n]
-    right = map (\a -> a `mod` n) [0..n]
+    right = [0..(n-1)]
+    left = map (\a -> a^2 `mod` n) right
+
+example = do
+  putStrLn $ show $ equation 6
+  putStrLn $ show $ m 6
 
 main = do
-  putStrLn $ show $ m 3
+  putStrLn $ show $ m 100
