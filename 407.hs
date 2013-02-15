@@ -18,9 +18,9 @@ equation n = zip left right
     right = [0..(n-1)]
     left = map (\a -> a^2 `mod` n) right
 
-example = do
-  putStrLn $ show $ equation 6
-  putStrLn $ show $ m 6
+sigma :: Word64
+sigma = sum $ map m [1..(10^7)]
 
 main = do
-  putStrLn $ show $ m 100
+  putStrLn $ show $ m 6
+  putStrLn $ show $ sigma
