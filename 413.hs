@@ -5,8 +5,17 @@ import qualified Data.Text as T
 --subStrings i = map (\s -> read s :: Integer) subStringsStr
 
 
-subStrings :: Integer -> Int -> S.Set Integer
-subStrings i n = S.map (\i' -> read (T.unpack i') :: Integer) $ S.fromList $ T.chunksOf n $ T.pack $ show i
+subStringsN :: Integer -> Int -> S.Set Integer
+subStringsN i n
+  | n <= 0 = S.fromList []
+  | otherwise = S.map (\i' -> read (T.unpack i') :: Integer) $ S.fromList $ T.chunksOf n $ T.pack $ show i
+
+subStrings :: Integer -> S.Set Integer
+subStrings i = S.fromList []
+  where
+    -- Number of digits
+    d = length $ show i
+    s = subStringsN i
 
 main = do
-  putStrLn $ show $ subStrings 1234 2
+  putStrLn $ show $ subStringsN 1234 (-3)
