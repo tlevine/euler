@@ -33,7 +33,9 @@ f :: Integer -> Integer
 f n = toInteger $ length $ filter (\i -> nChildren i == 1) [1..(n-1)]
 
 main = do
-  putStrLn $ show $ subStrings 1234 
-  putStrLn $ show $ nChildren 1234 
+  putStrLn $ show $ nChildren 5671
+  putStrLn $ show $ subStrings 5671
+  putStrLn $ show $ nChildren 104
+  putStrLn $ show $ nChildren 1132451
   putStrLn $ show $ f 10
   putStrLn $ show $ f 10^3
