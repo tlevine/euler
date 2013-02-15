@@ -5,17 +5,29 @@ import qualified Data.Text as T
 --subStrings i = map (\s -> read s :: Integer) subStringsStr
 
 
-subStringsN :: Integer -> Int -> S.Set Integer
+subStringsN :: Integer -> Integer -> S.Set Integer
 subStringsN i n
   | n <= 0 = S.fromList []
-  | otherwise = S.map (\i' -> read (T.unpack i') :: Integer) $ S.fromList $ T.chunksOf n $ T.pack $ show i
+  | otherwise = S.map (\i' -> read (T.unpack i') :: Integer) $ S.fromList $ T.chunksOf (fromInteger n) $ T.pack $ show i
+
+-- Number of digits
+d :: Integer -> Integer
+d i = toInteger $ length $ show i
 
 subStrings :: Integer -> S.Set Integer
-subStrings i = S.unions $ map s [1..d]
+subStrings i = S.unions $ map s [1..(d i)]
   where
-    -- Number of digits
-    d = length $ show i
     s = subStringsN i
+
+isDivisor :: Integer -> Integer -> Bool
+isDivisor 0 _ = False
+isDivisor denom num = 0 == num `mod` denom
+
+nChildren :: Integer -> Integer
+nChildren i = toInteger $ S.size $ S.filter (isDivisor d') $ subStrings i
+  where
+    d' = d i
 
 main = do
   putStrLn $ show $ subStrings 1234 
+  putStrLn $ show $ nChildren 1234 
