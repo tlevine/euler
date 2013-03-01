@@ -13,5 +13,19 @@ nPermutations (fullyFixedPlaces, partialDigits) = partialDigits * (unFixedPlaces
   where
     unFixedPlaces = 10 - fullyFixedPlaces
 
+m = 10^6 :: Integer
+
+nextRestriction :: Restriction -> Restriction
+nextRestriction r
+  | n == m         = r
+  | n > m & p > 0  = (f, p-1)
+  | n > m & p == 0 = (f
+  where
+    n = nPermutations r
+    (f, p) = r
+
+millionth :: Restriction
+millionth 
+
 main = do
   putStrLn "3"
