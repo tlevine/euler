@@ -20,3 +20,4 @@ done
 # Dunno why this needs to be separated
 expression=$(cat $tmp|sed '2,$ s/^/+/'| tr -d \\n)
 echo "$expression" | bc
+rm $tmp
