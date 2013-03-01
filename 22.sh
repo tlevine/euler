@@ -3,8 +3,7 @@
 tmp=$(mktemp)
 
 # Download and tidy.
-#wget -O - http://projecteuler.net/project/names.txt|
-cat names.txt|
+wget -O - http://projecteuler.net/project/names.txt|
 tr -d \" | tr , \\n |
 sort|
 sed 's/\([A-Z]\)/\1+/g'|
