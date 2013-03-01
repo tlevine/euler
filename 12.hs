@@ -1,8 +1,10 @@
-import Data.Natural
--- http://hackage.haskell.org/package/natural-numbers
+import Data.Natural -- http://hackage.haskell.org/package/natural-numbers
 
 triangle :: Natural -> Natural
-triangle 1 = 1
+triangle x = sum [1..x]
+
+nDivisors :: Natural -> Natural
+nDivisors x = fromIntegral $ length $ filter (\i -> x `mod` i == 0) [1..x]
 
 main = do
-  putStrLn "4"
+  --putStrLn $ show $ nDivisors 28
