@@ -1,0 +1,2 @@
+triangle :: Integer -> Integer
+triangle 
