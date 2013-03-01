@@ -24,7 +24,7 @@ n=$(echo '
 ' | tr -d '\n')
 
 best=0
-while echo $n grep '[0-9]\{5\}' > /dev/null; do
+while echo $n | grep '[0-9]\{5\}' > /dev/null; do
   current=$(($(echo $n|head -c5|sed 's/\([0-9]\)/\1*/g')1))
   if test $current -gt $best; then
     best=$current;
