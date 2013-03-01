@@ -28,5 +28,10 @@ main = do
 --putStrLn $ show $ convNumber [18306]
 --putStrLn $ show $ convNumber [12306]
 --putStrLn $ show $ convNumber [32300]
-  putStrLn $ show $ filter (isDigitPower 4) [1..10000]
-  putStrLn $ show $ filter (isDigitPower 5) [1..1000000]
+
+  putStrLn $ ""
+  putStrLn $ "Digit fourth powers"
+  putStrLn $ show $ sum $ filter (isDigitPower 4) [1..10000]
+  putStrLn $ ""
+  putStrLn $ "Digit fifth powers"
+  putStrLn $ show $ sum $ filter (isDigitPower 5) [1..1000000]
