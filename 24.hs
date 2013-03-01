@@ -1,0 +1,4 @@
+-- There are 10! = 3 million combinations
+-- If I fix the largest place at 9, there are 9! ~= 360,000 combinations
+-- If I limit the largest place to 9, 8 or 7, there are 3 * 9! ~= 1.1 million combinations
+-- Then I limit the second-largest place only when the first-largest place is 7...
