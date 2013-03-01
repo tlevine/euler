@@ -31,7 +31,7 @@ main = do
 
   putStrLn $ ""
   putStrLn $ "Digit fourth powers"
-  putStrLn $ show $ sum $ filter (isDigitPower 4) [1..10000]
+  putStrLn $ show $ sum $ filter (isDigitPower 4) [2..10000]
   putStrLn $ ""
   putStrLn $ "Digit fifth powers"
-  putStrLn $ show $ sum $ filter (isDigitPower 5) [1..1000000]
+  putStrLn $ show $ sum $ filter (isDigitPower 5) [2..1000000]
